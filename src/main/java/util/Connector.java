@@ -50,6 +50,7 @@ public class Connector {
             statement.setTimestamp(4, Timestamp.valueOf(LocalDateTime.ofInstant(attempt.getAttemptTime(), ZoneOffset.UTC)));
             statement.setDouble(5, attempt.getProcessTime());
             statement.setBoolean(6, attempt.isSuccess());
+            statement.executeUpdate();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
